@@ -65,6 +65,11 @@ module Docsplit
     PdfExtractor.new.extract(docs, opts)
   end
 
+  # Extract the document structure from the PDF document
+  def self.extract_structure(pdfs, opts={})
+    StructureExtractor.new.extract(pdfs, opts)
+  end
+
   # Define custom methods for each of the metadata keys that we support.
   # Use the ExtractInfo Java class to print out a single bit of metadata.
   METADATA_KEYS.each do |key|
@@ -107,3 +112,4 @@ require "#{Docsplit::ROOT}/lib/docsplit/page_extractor"
 require "#{Docsplit::ROOT}/lib/docsplit/pdf_extractor"
 require "#{Docsplit::ROOT}/lib/docsplit/info_extractor"
 require "#{Docsplit::ROOT}/lib/docsplit/text_cleaner"
+require "#{Docsplit::ROOT}/lib/docsplit/structure_extractor"
